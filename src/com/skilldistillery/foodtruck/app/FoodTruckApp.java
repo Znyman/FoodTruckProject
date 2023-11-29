@@ -7,6 +7,7 @@ import com.skilldistillery.foodtruck.entities.FoodTruck;
 public class FoodTruckApp {
 
 	private FoodTruck fleet[] = new FoodTruck[5];
+	private Scanner keyboard = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		FoodTruckApp foodTruckApp = new FoodTruckApp();
@@ -15,14 +16,13 @@ public class FoodTruckApp {
 	}
 
 	public void run() {
-		Scanner keyboard = new Scanner(System.in);
-		getFoodTruckInput(keyboard);
-		displayMenu(keyboard);
+		getFoodTruckInput();
+		displayMenu();
 		keyboard.close();
 	}
 
 	// get input for FoodTrucks
-	public void getFoodTruckInput(Scanner keyboard) {
+	public void getFoodTruckInput() {
 
 		for (int i = 0; i < fleet.length; i++) {
 			System.out.println("What is the name of the food truck?");
@@ -40,7 +40,7 @@ public class FoodTruckApp {
 	}
 
 	// display menu
-	public void displayMenu(Scanner keyboard) {
+	public void displayMenu() {
 
 		int userOption = 0;
 
@@ -58,7 +58,8 @@ public class FoodTruckApp {
 				displayFoodTrucks();
 				continue;
 			case 2:
-				System.out.println("The average rating for all entered food trucks is: " + calculateFleetRatingAverage());
+				System.out
+						.println("The average rating for all entered food trucks is: " + calculateFleetRatingAverage());
 				continue;
 			case 3:
 				System.out.println("The highest rated food truck is: " + findHighestRatedTruck());
